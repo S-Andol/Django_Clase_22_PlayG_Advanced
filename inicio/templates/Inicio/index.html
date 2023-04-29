@@ -1,0 +1,17 @@
+<!-- MOVEMOS TODO A base.html -->
+<!-- Para eso le decimos que "herede" de base html, ya que si vemos la pagina esta en blanco. -->
+
+{% extends 'base.html' %} 
+<!-- Me traigo todo del base -->
+
+
+<!-- Si tuviera que cargar alguna IMAGEN o lo que sea que este dentro de los "static" debo agregar el load... -->
+<!-- {% load static %} -->
+
+{% block title_head %}
+<title>Inicio</title>
+{% endblock title_head %}
+
+{% block 'h1_header' %}
+<h1>Bienvenidos a mi pagina principal</h1>
+{% endblock 'h1_header' %}

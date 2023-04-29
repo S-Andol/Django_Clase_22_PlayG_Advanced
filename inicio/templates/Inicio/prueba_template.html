@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!-- Podemos modificar el titulo desde aca (?)-->
+    <title>Mostrar Fecha/Año</title> 
+</head>
+<body>
+
+    {% if edad > 20 %} <!-- Le indicamos donde inicia el if-->
+    <p>{{nombre}} {{apellido}}</p>
+    {% elif edad > 15 %}
+    <p style="color: green">{{nombre}} {{apellido}}</p>
+    {% else %}
+    <p style="color: red">{{nombre}} {{apellido}}</p>
+    {% endif %} <!-- Le indicamos donde termina el if-->
+
+
+    <!--<p>{{nombre}} {{apellido}}</p> <!-- Colocamos doble {} para que nos tome el dato -->
+    <!--<p style="color: red">{{nombre}} {{apellido}}</p> <!--Le cambiamos el color con una etiqueta de estilo-->
+
+
+    <!-- VAMOS A MOSTRAR LOS AÑOS -->
+    {% for año in años %}
+    <h3><li>{{año}}</li></h3>
+    <h3><li>Valor del listado número {{forloop.counter}} es: {{año}}</li></h3>
+    {% endfor %}
+
+
+</body>
+</html>
