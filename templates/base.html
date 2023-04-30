@@ -33,8 +33,11 @@
                 {% comment %} <a class="navbar-brand" href="{% url 'prueba_template' %}">Prueba Template</a> {% endcomment %}
 
                 <a class="navbar-brand" href="{% url 'inicio:listar_animales' %}">Animales</a>
-                {% comment %} <a class="navbar-brand" href="{% url 'prueba_render' %}">Prueba Render</a> {% endcomment %}
-                {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
+                <a class="navbar-brand" href="{% url 'inicio:prueba_render' %}">Prueba Render</a>
+                <a class="btn btn-primary" href={% url 'usuarios:login' %}>Inicio Sesion</a>
+                <a href='#'>{{request.user.username}}</a>
+                <a class="btn btn-primary" href={% url 'usuarios:registro' %}>Registrarse</a>
+                <a class="btn btn-primary" href={% url 'usuarios:logout' %}>Cerrar Sesion</a>
             </div>
         </nav>
         <!-- Masthead-->

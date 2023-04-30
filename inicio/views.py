@@ -8,6 +8,10 @@ from inicio.forms import CreacionAnimalFormulario, BuscarAnimal, ModificarAnimal
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
+
 
 def mi_vista(request):
     print('Pase por aca!!! REY') #sale en la terminal, en el momento en que se ejecute
@@ -125,6 +129,8 @@ def prueba_template(request):
     # print(type(request.POST))
     # print(request.POST)
 
+
+@login_required
 def prueba_render(request):
     datos = {'nombre':'Pepe'}
     # template = loader.get_template(r'prueba_render.html')
@@ -210,14 +216,14 @@ class CrearAnimal(CreateView):
     # Si por esas casualidades no pasamos formularios entonces tenemos que...
     # form = le pasamos el formulario que queremos qe use 
 
-class ModificarAnimal(UpdateView):
+class ModificarAnimal(LoginRequiredMixin, UpdateView): # Primero va siempre el mixin sino no funca
     model = Animal
     template_name = 'inicio/CBV/modificar_animal.html'
     success_url = '/inicio/animales/'
     fields = ['nombre', 'edad', 'cant_dientes']
     
 
-class EliminarAnimal(DeleteView):
+class EliminarAnimal(LoginRequiredMixin, DeleteView):
     model = Animal
     template_name ='inicio/CBV/eliminar_animal.html'
     success_url = '/inicio/animales/'
