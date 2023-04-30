@@ -11,17 +11,10 @@
 
 {% block contenido %}
 <button>
-    <a class="navbar-brand" href="{% url 'inicio:crear_animal' %}">Crear Animal</a>
+<a class="navbar-brand" href="{% url 'inicio:crear_animal' %}">Crear</a>
 </button>
-<p>
-{% comment %} <a class="navbar-brand" href="{% url 'inicio:eliminar_animal' %}">Eliminar</a> {% endcomment %}
-    <form action={% url "inicio:listar_animales" %}>
-        {{formulario}}
-        <button>Buscar</button>
-    </form>
-</p>
-{% if animales %}
-    {% for animal in animales %}
+{% if object_list %}
+    {% for animal in object_list %}
     <li>
         <a class="navbar-brand" href="{% url 'inicio:mostrar_animal' animal.id %}">{{animal}}</a>
         {% comment %} Nombre: {{animal.nombre}} - Edad: {{animal.edad}} {% endcomment %}

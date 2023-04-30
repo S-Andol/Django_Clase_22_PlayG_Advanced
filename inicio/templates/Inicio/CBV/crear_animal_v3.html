@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title_head %}
+<title> Crear Animal</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Crear Animal</h2>
+{% endblock h1_header %}
+
+
+{% comment %} form = etiqueta de formulario {% endcomment %}
+{% comment %} method = puede ser:
+        get = se usa cuando se requiere hacer consultas en nuestro proyecto
+        post = son aquellos que requieren enviar informacion para generar modificaciones.
+{% endcomment %}
+{% comment %} Si nos olvidamos de poner el method, el programa lo toma como si fuera un metodo GET. {% endcomment %}
+{% block contenido %}
+<form action= {% url 'inicio:crear_animal' %} method="POST">
+    {% comment %} {% url '' %} le estamos diciendo que vaya al url pero al mismo lugar, si queremos que vaya a otro, tenemos que agregar la ubicacion en el str {% endcomment %}
+    {% csrf_token %} 
+    <table>
+        {{form}}
+    </table>
+    <button>Crear</button>
+</form>
+{% endblock contenido %}
+
+
+
+

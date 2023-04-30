@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Django_Clase_22_PlayG_Advanced.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],# agregamos la base de datos y le colocamos un str de templates,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

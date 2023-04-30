@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title_head %}
+<title> Animal</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>{{animal_a_mostrar}}</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+<ul>
+    <li>Nombre: {{animal_a_mostrar.nombre}}</li>
+    <li>Edad: {{animal_a_mostrar.edad}}</li>
+    <li>Cantidad de dientes: {{animal_a_mostrar.cant_dientes}}</li>
+</ul>
+<p>
+    <button>
+        <a class="navbar-brand" href="{% url 'inicio:modificar_animal' animal_a_mostrar.id %}">Modificar</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href="{% url 'inicio:eliminar_animal' animal_a_mostrar.id %}">Eliminar</a>
+    </button>
+</p>
+{% endblock contenido %}
+
+
+
+

@@ -8,6 +8,7 @@ class Animal(models.Model): # al ponele models.Model, le estamos diciendo a los 
     # Atributos
     nombre = models.CharField (max_length=20) # aca decis que "nombre" va a ser un "campo de caracteres", siempre pasarle el maximo caracteres que va a tener
     edad =  models.IntegerField() # edad es una campo de numeros enteros. A este no va a ser necesario que le pasemos un valor.
+    cant_dientes = models.IntegerField(null=True)
 
     def __str__(self):
         return f'Soy {self.nombre}, tengo {self.edad}'
